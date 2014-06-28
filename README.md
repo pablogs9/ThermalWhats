@@ -17,3 +17,8 @@ Really fun as cheap dirty photo printer or living room message system.
 
 - ThermalWhats.py is the main program that connects to the servers and to the printer. Here is where you have to COMPLETE your CREDENTIALS and the THERMAL PRINTER SERIAL ADDRESS. See Yowsup library to learn how to get your credentials.
 
+ThermalLibrary
+==============
+
+balg
+
