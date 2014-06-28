@@ -18,10 +18,10 @@ Really fun as cheap dirty photo printer or living room message system.
 Thermal Library
 ==============
 
-The Thermal Library is implements lots of commands according to the ESC/POS standart:
+The Thermal Library is implements lots of commands according to the ESC/POS standard:
 
 - Start the serial connection with the printer
-- Format text: emphatise, underline, align, character size, text rotation, inverted colors (white text and black background).
+- Format text: emphasis, underline, align, character size, text rotation, inverted colors (white text and black background).
 - Change between small or standard font size
 - Resize and print bitmaps given as a arbitrary image format (JPEG,PNG...)
 
