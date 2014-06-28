@@ -12,13 +12,16 @@ and apply some 1 bit dithering.
 Really fun as cheap dirty photo printer or living room message system.
 
 - I have copied Yowsup library in order to make things easier.
-
 - LibThermal.py is the thermal library which implements ESC/POS commands.
-
 - ThermalWhats.py is the main program that connects to the servers and to the printer. Here is where you have to COMPLETE your CREDENTIALS and the THERMAL PRINTER SERIAL ADDRESS. See Yowsup library to learn how to get your credentials.
 
-ThermalLibrary
+Thermal Library
 ==============
 
-balg
+The Thermal Library is implements lots of commands according to the ESC/POS standart:
+
+- Start the serial connection with the printer
+- Format text: emphatise, underline, align, character size, text rotation, inverted colors (white text and black background).
+- Change between small or standard font size
+- Resize and print bitmaps given as a arbitrary image format (JPEG,PNG...)
 
