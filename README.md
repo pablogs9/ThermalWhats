@@ -18,7 +18,7 @@ Really fun as cheap dirty photo printer or living room message system.
 Thermal Library
 ==============
 
-The Thermal Library is implements lots of commands according to the ESC/POS standard:
+The Thermal Library implements lots of commands according to the ESC/POS standard:
 
 - Start the serial connection with the printer
 - Format text: emphasis, underline, align, character size, text rotation, inverted colors (white text and black background).
