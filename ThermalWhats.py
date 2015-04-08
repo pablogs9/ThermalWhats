@@ -14,7 +14,7 @@ printmode = 1
 ##Desconecting
 def ondisconnected(error):
     time.sleep(2)
-    methodsInterface.call("auth_login",("34668882592",base64.b64decode("aeZDgEteVv4J4Oi5RLfI3FHZYbg=")))
+    methodsInterface.call("auth_login",(" ",base64.b64decode(" ")))
     methodsInterface.call("ready")
     methodsInterface.call("presence_sendAvailable")
     print "Reconnecting"
