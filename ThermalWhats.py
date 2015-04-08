@@ -8,13 +8,23 @@ import urllib
 from LibThermal import *
 from PIL import Image
 
+#Enter your credentials here
+user = ""
+passw = ""
+
+#Enter your serial devide here
+
+devid = "/dev/serial/by-id/usb-0d3a_0368-if00"
+
+
 timeref = -120
 printmode = 1
 
 ##Desconecting
 def ondisconnected(error):
     time.sleep(2)
-    methodsInterface.call("auth_login",(" ",base64.b64decode(" ")))
+    
+    methodsInterface.call("auth_login",(user,base64.b64decode(passw)))
     methodsInterface.call("ready")
     methodsInterface.call("presence_sendAvailable")
     print "Reconnecting"
@@ -112,7 +122,7 @@ def onaudio_received(messageId,jid,url,size,receiptRequested,a):
 
 
 ##Init Yowsup and Thermal Printer
-t = Thermal("/dev/serial/by-id/usb-0d3a_0368-if00")
+t = Thermal(devid)
 y = YowsupConnectionManager()
 y.setAutoPong(True)
 Debugger.enabled = False
@@ -128,7 +138,7 @@ signalsInterface.registerListener("audio_received", onaudio_received)
 signalsInterface.registerListener("receipt_messageDelivered", onMessageDelivered)
 
 ##Auth
-methodsInterface.call("auth_login", ("34668882592",base64.b64decode("aeZDgEteVv4J4Oi5RLfI3FHZYbg=")))
+methodsInterface.call("auth_login", (user,base64.b64decode(passw)))
 methodsInterface.call("ready")
 
 ##Profile photo and Status
