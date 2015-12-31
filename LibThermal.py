@@ -20,7 +20,7 @@ class Thermal:
                                  dsrdtr=1,
                                  interCharTimeout=0.01
                                  )
-        self.ser.write([0x1B,0x52,0x07])
+        self.ser.write(bytearray([0x1B,0x52,0x07]))
 
 
     def close(self):
@@ -33,14 +33,14 @@ class Thermal:
 
     def emphatised(self,value):
         if value == 1:
-            self.ser.write([0x1B,0x45,0x01])
+            self.ser.write(bytearray([0x1B,0x45,0x01]))
         
         else:
-            self.ser.write([0x1B,0x45,0x00])
+            self.ser.write(bytearray([0x1B,0x45,0x00]))
         self.ser.flush()
 
     def cutPaper(self):
-        self.ser.write([0x1D,0x56,0x00])
+        self.ser.write(bytearray([0x1D,0x56,0x00]))
         self.ser.flush()
 
     def println(self,s):
@@ -52,14 +52,14 @@ class Thermal:
         self.ser.flush()
     
     def printLines(self,n):
-        self.ser.write([0x1B,0x64,n])
+        self.ser.write(bytearray([0x1B,0x64,n]))
     
     
     def underline(self,value):
         if value == 1:
-            self.ser.write([0x1B,0x2D,0x01])
+            self.ser.write(bytearray([0x1B,0x2D,0x01]))
         else:
-            self.ser.write([0x1B,0x2D,0x00])
+            self.ser.write(bytearray([0x1B,0x2D,0x00]))
         self.ser.flush()
     
     def textAling(self,value):
