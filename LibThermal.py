@@ -64,18 +64,18 @@ class Thermal:
     
     def textAling(self,value):
         if value == 1:
-            self.ser.write([0x1B,0x61,0x01])
+            self.ser.write(bytearray([0x1B,0x61,0x01]))
         elif value == 2:
-            self.ser.write([0x1B,0x61,0x02])
+            self.ser.write(bytearray([0x1B,0x61,0x02]))
         else:
-            self.ser.write([0x1B,0x61,0x00])
+            self.ser.write(bytearray([0x1B,0x61,0x00]))
         self.ser.flush()
 
     def smallFont(self,value):
         if value == 1:
-            self.ser.write([0x1B,0x4D,0x01])
+            self.ser.write(bytearray([0x1B,0x4D,0x01]))
         else:
-            self.ser.write([0x1B,0x4D,0x00])
+            self.ser.write(bytearray([0x1B,0x4D,0x00]))
         self.ser.flush()
 
     def textOrientation(self,value):
@@ -107,7 +107,7 @@ class Thermal:
         h = h % 8;
         v = v % 8;
         size = ((h << 4) & 0xF0) | (v & 0x0F)
-        self.ser.write([0x1D,0x21,size])
+        self.ser.write(bytearray([0x1D,0x21,size]))
         self.ser.flush()
 
     def invert(self,value):
@@ -149,7 +149,7 @@ class Thermal:
         im = im.convert('1')
         w, h = im.size
 
-        self.ser.write([0x1D,0x2A,int(ceil(w/8.0)),int(ceil(h/8.0))])
+        self.ser.write(bytearray([0x1D,0x2A,int(ceil(w/8.0)),int(ceil(h/8.0))]))
         self.ser.flush()
         for j in range(int(ceil(w/8.0))*8):
             for i in range(0,int(ceil(h/8.0))*8,8):
@@ -162,13 +162,13 @@ class Thermal:
                     except:
                         data |= 0 << desp
                     desp = desp - 1
-                self.ser.write([data])
+                self.ser.write(bytearray([data]))
         self.ser.flush()
         
         if value == 1:
-            self.ser.write([0x1D,0x2F,0x03])
+            self.ser.write(bytearray([0x1D,0x2F,0x03]))
         else:
-            self.ser.write([0x1D,0x2F,0x00])
+            self.ser.write(bytearray([0x1D,0x2F,0x00]))
         self.ser.flush()
 
     def printLargeBitmap(self,im):
